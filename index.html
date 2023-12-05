@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai Universe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #2C3335;
+            color: white;
+        }
+
+        .card {
+            background-color: #2C3335;
+            color: white;
+        }
+
+        .modal-body {
+            background-color: #2C3335;
+        }
+
+        .modal-content {
+            background-color: #2C3335;
+        }
+
+        #accuracy {
+            background: #EB5757;
+            height: 24px;
+            width: 90px;
+            font-family: Work Sans;
+
+        }
+
+        .subscription {
+            width: 100px;
+            height: 100px;
+            border-radius: 16px;
+            background: #FFF;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <center>
+            <h2>AI Universe Hub</h2>
+        </center>
+    </header>
+
+    <main>
+        <section class="container">
+            <div id="grids" class="row row-cols-1 row-cols-md-3 g-4">
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="modal-body" class="modal-body">
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <center>
+        <div>
+            <button id="show-all" onclick="loadData2()" class="btn btn-primary">
+                Show All
+            </button>
+        </div>
+    
+    </center>
+
+
+
+
+
+
+    <script src="universe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5befbf14cc.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
