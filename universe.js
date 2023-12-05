@@ -1,7 +1,12 @@
+
+
 const loadData = () => {
+  toggleSpinner(true)
+  
   fetch(`https://openapi.programming-hero.com/api/ai/tools`)
     .then(res => res.json())
     .then(data => showData(data.data.tools.slice(0,6)))
+    
 }
 const loadData2 = () => {
   const showAll = document.getElementById('show-all');
@@ -11,7 +16,21 @@ const loadData2 = () => {
     .then(data => showData(data.data.tools))
 }
 
+const sortDataByDate = () => {
+  toggleSpinner(true)
+  fetch(`https://openapi.programming-hero.com/api/ai/tools`)
+    .then(res => res.json())
+    .then(data => {
+      // Sort the data by date
+      const sortedData = data.data.tools.slice().sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
+      showData(sortedData);
+    });
+}
+
+
 const showData = (datas) => {
+  
+  
   console.log(datas)
   const gridContainer = document.getElementById('grids')
   gridContainer.innerHTML=''
@@ -61,6 +80,8 @@ const showData = (datas) => {
 
 
   })
+  toggleSpinner(false)
+  
   
 
 
@@ -79,6 +100,7 @@ const loadDetails = async (id) => {
 
 }
 const displayDetails = (data) => {
+  
   console.log(data)
   const modalBody = document.getElementById('modal-body');
   modalBody.innerHTML = `
@@ -131,7 +153,7 @@ const displayDetails = (data) => {
       <div class="card">
         <div>
         <img src="${data.data.image_link[0]}" class="card-img-top position-relative rounded" alt="...">
-        <p id="accuracy" class="position-absolute top-0 end-0 mt-2 rounded text-center">${data.data.accuracy.score}%</p>
+        <p id="accuracy" class="position-absolute top-0 end-0 mt-2 rounded text-center">${data.data.accuracy.score ?data.data.accuracy.score : `` }</p>
         </div>
         <div class="card-body">
           <h4 class="card-title text-center">${data.data.input_output_examples[0].input}</h4>
@@ -145,6 +167,7 @@ const displayDetails = (data) => {
   
   
   `;
+  
   const fi = document.getElementById('fi')
   const inte = document.createElement('div');
   data.data.integrations.forEach(data => {
@@ -160,8 +183,23 @@ const displayDetails = (data) => {
   })
 
 
+  
+
+
 
 }
+function toggleSpinner(isLoading){
+  const loaderSection = document.getElementById('loader');
+  if (isLoading) {
+      loaderSection.classList.remove('d-none')
+  }
+  else {
+      loaderSection.classList.add('d-none')
+  }
+
+
+}
+
 
 
 
